@@ -1,0 +1,61 @@
+{
+  "name": "bryantung.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha 'src/**/*.spec.js' --require babel-register --reporter nyan",
+    "dev": "babel-node ./devServer.js",
+    "clean-server": "rm -rf ./dist",
+    "clean-client": "rm -rf ./assets",
+    "clean-all": "npm run clean-server && npm run clean-client",
+    "build": "npm run build-server && npm run build-client",
+    "build:prod": "NODE_ENV=production npm run build",
+    "build-server": "npm run clean-server && babel src -d dist",
+    "build-client": "npm run clean-client && webpack --config ./webpack.config.babel.js",
+    "serve": "npm run build:prod && node ./bin/www",
+    "publish": "npm run build:prod && npm run clean-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bryantung/bryantung.github.io.git"
+  },
+  "author": "bryantung",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bryantung/bryantung.github.io/issues"
+  },
+  "homepage": "https://github.com/bryantung/bryantung.github.io#readme",
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-register": "^6.24.1",
+    "chai": "^3.5.0",
+    "extract-text-webpack-plugin": "^2.1.0",
+    "history": "^4.6.1",
+    "lodash": "^4.17.4",
+    "mocha": "^3.2.0",
+    "opn": "^4.0.2",
+    "prop-types": "^15.5.9",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "react-hot-loader": "^3.0.0-beta.7",
+    "react-redux": "^5.0.4",
+    "react-router": "^4.1.1",
+    "react-router-dom": "^4.1.1",
+    "react-router-redux": "^4.0.8",
+    "redux": "^3.6.0",
+    "redux-thunk": "^2.2.0",
+    "webpack": "^2.4.1",
+    "webpack-dev-server": "^2.4.5"
+  },
+  "dependencies": {
+    "debug": "^2.6.6",
+    "express": "^4.15.2",
+    "express-history-api-fallback": "^2.1.0"
+  }
+}

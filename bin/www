@@ -1,0 +1,10 @@
+const debug = require('debug');
+
+const app = require('../dist/server').default;
+
+const PORT = process.env.PORT || 3000;
+const logger = debug('app');
+
+app.listen(PORT, () => {
+  logger(`Express server listening on port ${PORT}`);
+});
